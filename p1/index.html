@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="~/css/template.css">
+    <title>Hello, world!</title>
+</head>
+<body>
+    <div class="main-container-1">
+        <div>
+            <div id="chart-map"></div>
+        </div>
+        <div>
+            <div id="chart-bar"></div>
+        </div>
+    </div>
+    <div class="main-container-2">
+        <div>
+            <div id="chart-pie-1"></div>
+        </div>
+        <div>
+            <div id="chart-stacked-2"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    @*<script src="https://code.highcharts.com/highcharts.js"></script>*@
+
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+    <script>
+
+        $(function () {
+
+            Highcharts.getJSON('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/world-population.json', function (data) {
+
+                Highcharts.mapChart('chart-map', {
+                    chart: {
+                        borderWidth: 1,
+                        map: 'custom/world'
+                    },
+
+                    title: {
+                        text: 'Total Deaths by country'
+                    },
+
+                    credits: {
+                        enabled: false
+                    },
+
+                    legend: {
+                        enabled: false
+                    },
+
+                    mapNavigation: {
+                        enabled: true,
+                        buttonOptions: {
+                            verticalAlign: 'bottom'
+                        }
+                    },
+
+                    series: [{
+                        name: 'Countries',
+                        color: '#E0E0E0',
+                        enableMouseTracking: false
+                    }, {
+                        type: 'mapbubble',
+                        name: 'Total Deaths',
+                        joinBy: ['iso-a3', 'code3'],
+                        data: data,
+                        minSize: 4,
+                        maxSize: '12%',
+                        tooltip: {
+                            pointFormat: '{point.properties.hc-a2}: {point.z} thousands'
+                        }
+                    }]
+                });
+            });
+
+            Highcharts.chart('chart-bar', {
+                chart: {
+                    type: 'bar'
+                },
+                credits: {
+                    enabled: false
+                },
+                title: {
+                    text: 'Top Contries'
+                },
+                xAxis: {
+                    categories: [
+                        'Norway',
+                        'India',
+                        'USA',
+                        'China',
+                        'Germany'
+                    ]
+                },
+                series: [{
+                    name: 'Total Deaths',
+                    data: [{
+                        name: 'Norway',
+                        y: 50,
+                    }, {
+                        name: 'India',
+                        y: 25
+                    }, {
+                        name: 'USA',
+                        y: 10
+                    }, {
+                        name: 'China',
+                        y: 4
+                    }, {
+                        name: 'Germany',
+                        y: 4
+                    }]
+                }]
+            });
+
+            Highcharts.chart('chart-pie-1', {
+                chart: {
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Top Countries'
+                },
+                series: [{
+                    name: 'Total Death',
+                    data: [{
+                        name: 'China',
+                        y: 61.41,
+                    }, {
+                        name: 'USA',
+                        y: 11.84
+                    }, {
+                        name: 'Norway',
+                        y: 10.85
+                    }, {
+                        name: 'India',
+                        y: 4.67
+                    }, {
+                        name: 'Sweden',
+                        y: 4.18
+                    }]
+                }]
+            });
+
+            Highcharts.chart('chart-stacked-2', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Top countries by Total Deaths'
+                },
+                xAxis: {
+                    categories: ['China', 'Usa', 'Norway', 'India', 'Sweden']
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Total fruit consumption'
+                    },
+                    stackLabels: {
+                        enabled: true,
+                        style: {
+                            fontWeight: 'bold',
+                            color: ( // theme
+                                Highcharts.defaultOptions.title.style &&
+                                Highcharts.defaultOptions.title.style.color
+                            ) || 'gray'
+                        }
+                    }
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: true
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Total Cases',
+                    data: [5, 3, 4, 7, 2]
+                }, {
+                    name: 'Total Deaths',
+                    data: [2, 2, 3, 2, 1]
+                }]
+            });
+
+        });
+
+    </script>
+</body>
+</html>
