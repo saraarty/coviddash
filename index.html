@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/@@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="~/css/template.css">
+    <link rel="stylesheet" href="/coviddash/template.css">
     <title>Hello, world!</title>
 </head>
 <body>
@@ -396,7 +396,7 @@
         function loadCountries() {
             $.ajax({
                 dataType: "json",
-                url: '/data/app/Countries.json',
+                url: '/coviddash/data/app/Countries.json',
                 async: false,
                 success: function (data) {
                     countriesList = data;
@@ -405,7 +405,7 @@
         }
 
         async function getJSON(countryCode, attributeCode, smoothed, perMillion) {
-            return fetch('/data/' + countryCode + '_' + attributeCode + ((smoothed && attributeCode.startsWith("new_")) ? "_smoothed" : "") + ((perMillion) ? "_per_million" : "") + '.json')
+            return fetch('/coviddash/data/' + countryCode + '_' + attributeCode + ((smoothed && attributeCode.startsWith("new_")) ? "_smoothed" : "") + ((perMillion) ? "_per_million" : "") + '.json')
                 .then((response) => response.json())
         }
 
