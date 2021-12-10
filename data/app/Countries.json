@@ -1,5 +1,29 @@
 [
   {
+    "title": "Norway",
+    "value": "NOR"
+  },
+  {
+    "title": "United States",
+    "value": "USA"
+  },
+  {
+    "title": "Germany",
+    "value": "DEU"
+  },
+  {
+    "title": "France",
+    "value": "FRA"
+  },
+  {
+    "title": "United Kingdom",
+    "value": "GBR"
+  },
+  {
+    "title": "China",
+    "value": "CHN"
+  },
+  {
     "title": "Aruba",
     "value": "ABW"
   },
@@ -144,10 +168,6 @@
     "value": "CHL"
   },
   {
-    "title": "China",
-    "value": "CHN"
-  },
-  {
     "title": "Cote d'Ivoire",
     "value": "CIV"
   },
@@ -202,10 +222,6 @@
   {
     "title": "Czechia",
     "value": "CZE"
-  },
-  {
-    "title": "Germany",
-    "value": "DEU"
   },
   {
     "title": "Djibouti",
@@ -264,10 +280,6 @@
     "value": "FLK"
   },
   {
-    "title": "France",
-    "value": "FRA"
-  },
-  {
     "title": "Faeroe Islands",
     "value": "FRO"
   },
@@ -278,10 +290,6 @@
   {
     "title": "Gabon",
     "value": "GAB"
-  },
-  {
-    "title": "United Kingdom",
-    "value": "GBR"
   },
   {
     "title": "Georgia",
@@ -592,10 +600,6 @@
     "value": "NLD"
   },
   {
-    "title": "Norway",
-    "value": "NOR"
-  },
-  {
     "title": "Nepal",
     "value": "NPL"
   },
@@ -890,10 +894,6 @@
   {
     "title": "Uruguay",
     "value": "URY"
-  },
-  {
-    "title": "United States",
-    "value": "USA"
   },
   {
     "title": "Uzbekistan",
