@@ -8,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/coviddash/template.css">
-    <title>Hello, world!</title>
+    <link rel="stylesheet" href="/coviddash/css/template.css">
+    <title>Covid Dashboard</title>
 </head>
 <body>
 
@@ -50,6 +50,17 @@
                                     label="Options"
                                     item-text="title"
                                     item-value="value"></v-autocomplete>
+                    <v-autocomplete chips
+                                    clearable
+                                    deletable-chips
+                                    multiple
+                                    small-chips
+                                    solo
+                                    v-model="selectedPredictions"
+                                    :items="allPredictions"
+                                    label="Predictions"
+                                    item-text="title"
+                                    item-value="value"></v-autocomplete>
                     <div id="chart-line"></div>
                     <div id="chart-bar"></div>
                     <div id="chart-pie"></div>
@@ -66,7 +77,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-
 
     <script src="https://code.highcharts.com/maps/highmaps.js"></script>
     <script src="https://code.highcharts.com/maps/modules/data.js"></script>
@@ -392,6 +402,38 @@
 
         }
 
+        async function dataChanged5() {
+
+            for (let ctr of vueApp.$data.selectedCountries) {
+                for (let atrib of vueApp.$data.selectedAttributes) {
+                    if (atrib == "total_deaths" || atrib == "total_cases") {
+
+                        for (let pred of vueApp.$data.selectedPredictions) {
+
+                            seriesX1.push(await getJSON(ctr, atrib, vueApp.$data.selectedOptions.includes("smoothed"), vueApp.$data.selectedOptions.includes("per_million"), true, (pred == "poly")));
+                        }
+
+                    }
+                }
+            }
+
+            if (chart1 != null) {
+
+                while (chart1.series.length > 0) {
+                    chart1.series[0].remove(false)
+                }
+
+                for (let newData of seriesX1) {
+
+                    chart1.addSeries(newData, false);
+
+                }
+
+                chart1.redraw()
+
+            }
+
+        }
 
         function loadCountries() {
             $.ajax({
@@ -404,8 +446,9 @@
             });
         }
 
-        async function getJSON(countryCode, attributeCode, smoothed, perMillion) {
-            return fetch('/coviddash/data/' + countryCode + '_' + attributeCode + ((smoothed && attributeCode.startsWith("new_")) ? "_smoothed" : "") + ((perMillion) ? "_per_million" : "") + '.json')
+
+        async function getJSON(countryCode, attributeCode, smoothed, perMillion, isPred, isPred_poly) {
+            return fetch('/coviddash/data/' + countryCode + '_' + attributeCode + ((isPred && isPred_poly) ? "_poly" : "") + ((isPred && !isPred_poly) ? "_bay" : "") + ((smoothed && attributeCode.startsWith("new_")) ? "_smoothed" : "") + ((perMillion) ? "_per_million" : "") + '.json')
                 .then((response) => response.json())
         }
 
@@ -450,9 +493,20 @@
                             value: "per_million"
                         }
                     ],
+                    allPredictions: [
+                        {
+                            title: "Polynomial Regression (total cases & total deaths only)",
+                            value: "poly"
+                        },
+                        {
+                            title: "Bayesian Ridge Regression (total cases & total deaths only)",
+                            value: "bay"
+                        }
+                    ],
                     selectedCountries: [],
                     selectedAttributes: [],
                     selectedOptions: [],
+                    selectedPredictions: [],
                 },
                 watch: {
                     selectedCountries: function () {
@@ -460,18 +514,28 @@
                         dataChanged2();
                         dataChanged3();
                         dataChanged4();
+                        dataChanged5();
                     },
                     selectedAttributes: function () {
                         dataChanged1();
                         dataChanged2();
                         dataChanged3();
                         dataChanged4();
+                        dataChanged5();
                     },
                     selectedOptions: function () {
                         dataChanged1();
                         dataChanged2();
                         dataChanged3();
                         dataChanged4();
+                        dataChanged5();
+                    },
+                    selectedPredictions: function () {
+                        dataChanged1();
+                        dataChanged2();
+                        dataChanged3();
+                        dataChanged4();
+                        dataChanged5();
                     }
                 },
 
