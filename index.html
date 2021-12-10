@@ -1,0 +1,484 @@
+﻿<!doctype html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/template.css">
+    <title>Hello, world!</title>
+</head>
+<body>
+
+    <div id="app">
+        <v-app id="inspire">
+            <v-main>
+                <v-container>
+                    <v-autocomplete chips
+                                    clearable
+                                    deletable-chips
+                                    multiple
+                                    small-chips
+                                    solo
+                                    v-model="selectedCountries"
+                                    :items="allCountries"
+                                    label="Countries"
+                                    item-text="title"
+                                    item-value="value"></v-autocomplete>
+                    <v-autocomplete chips
+                                    clearable
+                                    deletable-chips
+                                    multiple
+                                    small-chips
+                                    solo
+                                    v-model="selectedAttributes"
+                                    :items="allAttributes"
+                                    label="Attributes"
+                                    item-text="title"
+                                    item-value="value"></v-autocomplete>
+                    <v-autocomplete chips
+                                    clearable
+                                    deletable-chips
+                                    multiple
+                                    small-chips
+                                    solo
+                                    v-model="selectedOptions"
+                                    :items="allOptions"
+                                    label="Options"
+                                    item-text="title"
+                                    item-value="value"></v-autocomplete>
+                    <div id="chart-line"></div>
+                    <div id="chart-bar"></div>
+                    <div id="chart-pie"></div>
+                    <div id="chart-map"></div>
+                </v-container>
+            </v-main>
+        </v-app>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+    <script>
+
+        var seriesX = [];
+        var chart1;
+
+        var seriesX2 = [];
+        var countries2 = [];
+        var chart2;
+
+        var seriesX3 = [];
+        var chart3;
+
+        var seriesX4 = [];
+        var chart4;
+
+        async function dataChanged1() {
+
+            seriesX1 = [];
+
+            for (let ctr of vueApp.$data.selectedCountries) {
+                for (let atrib of vueApp.$data.selectedAttributes) {
+
+                    seriesX1.push(await getJSON(ctr, atrib, vueApp.$data.selectedOptions.includes("smoothed"), vueApp.$data.selectedOptions.includes("per_million")));
+
+                }
+            }
+
+            if (chart1 != null) {
+
+                if (seriesX1.length == 0) {
+                    chart1.destroy();
+                    chart1 = null;
+                } else {
+
+                    while (chart1.series.length > 0) {
+                        chart1.series[0].remove(false)
+                    }
+
+                    for (let newData of seriesX1) {
+
+                        chart1.addSeries(newData, false);
+
+                    }
+
+                    chart1.redraw()
+                }
+
+            } else {
+
+                if (seriesX1.length > 0) {
+                    chart1 = Highcharts.chart('chart-line', {
+                        chart: {
+                            type: 'line',
+                            zoomType: 'x'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            type: "datetime",
+                        },
+                        yAxis: {
+                            title: {
+                                text: ''
+                            }
+                        },
+                        series: seriesX1
+                    })
+                }
+
+            }
+
+        }
+
+        async function dataChanged2() {
+
+            if (vueApp.$data.selectedAttributes.length > 1 && vueApp.$data.selectedCountries.length > 1) {
+
+                countries2 = []
+                seriesX2 = [];
+
+                var isFirstAttrib = true;
+
+                for (let atrib of vueApp.$data.selectedAttributes) {
+
+                    var attribData = {
+                        name: null,
+                        data: []
+                    };
+
+                    for (let ctr of vueApp.$data.selectedCountries) {
+
+                        var jsonVal = await getJSON(ctr, atrib, vueApp.$data.selectedOptions.includes("smoothed"), vueApp.$data.selectedOptions.includes("per_million"));
+
+                        attribData.data.push(jsonVal.last);
+
+                        if (isFirstAttrib) {
+                            countries2.push(jsonVal.country);
+                        }
+                        if (attribData.name == null) {
+                            attribData.name = jsonVal.title;
+                        }
+
+                    }
+
+                    isFirstAttrib = false;
+
+                    seriesX2.push(attribData);
+                }
+
+                if (chart2 != null) {
+
+                    if (seriesX2.length == 0) {
+                        chart2.destroy();
+                        chart2 = null;
+                    } else {
+
+                        while (chart2.series.length > 0) {
+                            chart2.series[0].remove(false)
+                        }
+
+                        for (let newData of seriesX2) {
+
+                            chart2.addSeries(newData, false);
+
+                        }
+                        chart2.update({
+                            xAxis: {
+                                categories: countries2
+                            }
+                        }, false);
+
+                        chart2.redraw()
+                    }
+
+                } else {
+
+                    if (seriesX2.length > 0) {
+                        chart2 = Highcharts.chart('chart-bar', {
+                            chart: {
+                                type: 'column'
+                            },
+                            title: {
+                                text: 'Latest Data'
+                            },
+                            credits: {
+                                enabled: false
+                            },
+                            xAxis: {
+                                categories: countries2
+                            },
+                            yAxis: {
+                                title: {
+                                    text: ''
+                                }
+                            },
+                            series: seriesX2
+                        });
+                    }
+
+                }
+
+            } else {
+                if (chart2 != null) {
+                    chart2.destroy();
+                    chart2 = null;
+                }
+            }
+
+        }
+
+        async function dataChanged3() {
+
+            if (vueApp.$data.selectedAttributes.length == 1 || vueApp.$data.selectedCountries.length == 1) {
+                seriesX3 = [];
+
+                var chartData = {
+                    name: null,
+                    data: []
+                };
+
+                for (let atrib of vueApp.$data.selectedAttributes) {
+
+                    for (let ctr of vueApp.$data.selectedCountries) {
+
+                        var jsonVal = await getJSON(ctr, atrib, vueApp.$data.selectedOptions.includes("smoothed"), vueApp.$data.selectedOptions.includes("per_million"));
+
+                        chartData.data.push({
+                            name: ((vueApp.$data.selectedAttributes.length == 1) ? jsonVal.country : jsonVal.title),
+                            y: jsonVal.last,
+                        });
+
+                        if (chartData.name == null) {
+                            chartData.name = ((vueApp.$data.selectedCountries.length == 1 && vueApp.$data.selectedAttributes.length != 1) ? jsonVal.country : jsonVal.title);
+                        }
+
+                    }
+                }
+
+                if (vueApp.$data.selectedAttributes.length > 0 && vueApp.$data.selectedCountries.length > 0) {
+                    seriesX3.push(chartData);
+                }
+
+                if (chart3 != null) {
+
+                    if (seriesX3.length == 0) {
+                        chart3.destroy();
+                        chart3 = null;
+                    } else {
+
+                        while (chart3.series.length > 0) {
+                            chart3.series[0].remove(false)
+                        }
+
+                        for (let newData of seriesX3) {
+
+                            chart3.addSeries(newData, false);
+
+                        }
+
+                        chart3.redraw()
+                    }
+
+                } else {
+
+                    if (seriesX3.length > 0) {
+                        chart3 = Highcharts.chart('chart-pie', {
+                            chart: {
+                                type: 'pie'
+                            },
+                            title: {
+                                text: 'Latest Data'
+                            },
+                            credits: {
+                                enabled: false
+                            },
+                            series: seriesX3
+                        });
+                    }
+
+                }
+            } else {
+                if (chart3 != null) {
+                    chart3.destroy();
+                    chart3 = null;
+                }
+            }
+
+        }
+
+        async function dataChanged4() {
+
+            if (vueApp.$data.selectedAttributes.length == 1 && vueApp.$data.selectedCountries.length == 0) {
+
+                seriesX4 = [];
+
+                var mapData = await getJSON("ALL", vueApp.$data.selectedAttributes[0], vueApp.$data.selectedOptions.includes("smoothed"), vueApp.$data.selectedOptions.includes("per_million"));
+
+                seriesX4 = mapData.data
+                if (chart4 != null) {
+
+                    chart4.destroy();
+                    chart4 = null;
+                }
+
+                if (seriesX4.length > 0) {
+                    chart4 =
+                        Highcharts.mapChart('chart-map', {
+                            chart: {
+                                borderWidth: 1,
+                                map: 'custom/world'
+                            },
+
+                            title: {
+                                text: mapData.title
+                            },
+
+                            credits: {
+                                enabled: false
+                            },
+
+                            legend: {
+                                enabled: false
+                            },
+
+                            mapNavigation: {
+                                enabled: true,
+                                buttonOptions: {
+                                    verticalAlign: 'bottom'
+                                }
+                            },
+
+                            series: [{
+                                name: 'Countries',
+                                color: '#E0E0E0',
+                                enableMouseTracking: false
+                            }, {
+                                type: 'mapbubble',
+                                name: mapData.title,
+                                joinBy: ['iso-a3', 'code3'],
+                                data: seriesX4,
+                                minSize: 4,
+                                maxSize: '12%',
+                                tooltip: {
+                                    pointFormat: '{point.properties.hc-a2}: {point.z} thousands'
+                                }
+                            }]
+                        });
+                }
+            } else {
+                if (chart4 != null) {
+                    chart4.destroy();
+                    chart4 = null;
+                }
+            }
+
+        }
+
+
+        function loadCountries() {
+            $.ajax({
+                dataType: "json",
+                url: '/data/app/Countries.json',
+                async: false,
+                success: function (data) {
+                    countriesList = data;
+                }
+            });
+        }
+
+        async function getJSON(countryCode, attributeCode, smoothed, perMillion) {
+            return fetch('/data/' + countryCode + '_' + attributeCode + ((smoothed && attributeCode.startsWith("new_")) ? "_smoothed" : "") + ((perMillion) ? "_per_million" : "") + '.json')
+                .then((response) => response.json())
+        }
+
+        var countriesList;
+
+        var vueApp;
+
+        $(function () {
+
+            loadCountries();
+
+            vueApp = new Vue({
+                el: '#app',
+                vuetify: new Vuetify(),
+                data: {
+                    allCountries: countriesList,
+                    allAttributes: [
+                        {
+                            title: "New Cases",
+                            value: "new_cases"
+                        },
+                        {
+                            title: "New Deaths",
+                            value: "new_deaths"
+                        },
+                        {
+                            title: "Total Cases",
+                            value: "total_cases"
+                        },
+                        {
+                            title: "Total Deaths",
+                            value: "total_deaths"
+                        }
+                    ],
+                    allOptions: [
+                        {
+                            title: "Smoothed (new cases & new deaths only)",
+                            value: "smoothed"
+                        },
+                        {
+                            title: "Per Million",
+                            value: "per_million"
+                        }
+                    ],
+                    selectedCountries: [],
+                    selectedAttributes: [],
+                    selectedOptions: [],
+                },
+                watch: {
+                    selectedCountries: function () {
+                        dataChanged1();
+                        dataChanged2();
+                        dataChanged3();
+                        dataChanged4();
+                    },
+                    selectedAttributes: function () {
+                        dataChanged1();
+                        dataChanged2();
+                        dataChanged3();
+                        dataChanged4();
+                    },
+                    selectedOptions: function () {
+                        dataChanged1();
+                        dataChanged2();
+                        dataChanged3();
+                        dataChanged4();
+                    }
+                },
+
+
+            })
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,716 @@
+{
+  "title": "Total Deaths Per Million",
+  "data": [{
+		"code3": "ABW",
+        "z": 0
+},{
+		"code3": "AFG",
+        "z": 184
+},{
+		"code3": "AGO",
+        "z": 51
+},{
+		"code3": "AIA",
+        "z": 0
+},{
+		"code3": "ALB",
+        "z": 1088
+},{
+		"code3": "AND",
+        "z": 1719
+},{
+		"code3": "ARE",
+        "z": 215
+},{
+		"code3": "ARG",
+        "z": 2559
+},{
+		"code3": "ARM",
+        "z": 2604
+},{
+		"code3": "ATG",
+        "z": 1185
+},{
+		"code3": "AUS",
+        "z": 81
+},{
+		"code3": "AUT",
+        "z": 1435
+},{
+		"code3": "AZE",
+        "z": 784
+},{
+		"code3": "BDI",
+        "z": 3
+},{
+		"code3": "BEL",
+        "z": 2357
+},{
+		"code3": "BEN",
+        "z": 13
+},{
+		"code3": "BES",
+        "z": 0
+},{
+		"code3": "BFA",
+        "z": 13
+},{
+		"code3": "BGD",
+        "z": 168
+},{
+		"code3": "BGR",
+        "z": 4245
+},{
+		"code3": "BHR",
+        "z": 797
+},{
+		"code3": "BHS",
+        "z": 1776
+},{
+		"code3": "BIH",
+        "z": 3939
+},{
+		"code3": "BLR",
+        "z": 552
+},{
+		"code3": "BLZ",
+        "z": 1445
+},{
+		"code3": "BMU",
+        "z": 0
+},{
+		"code3": "BOL",
+        "z": 1628
+},{
+		"code3": "BRA",
+        "z": 2880
+},{
+		"code3": "BRB",
+        "z": 848
+},{
+		"code3": "BRN",
+        "z": 222
+},{
+		"code3": "BTN",
+        "z": 4
+},{
+		"code3": "BWA",
+        "z": 1009
+},{
+		"code3": "CAF",
+        "z": 21
+},{
+		"code3": "CAN",
+        "z": 786
+},{
+		"code3": "CHE",
+        "z": 1341
+},{
+		"code3": "CHL",
+        "z": 2006
+},{
+		"code3": "CHN",
+        "z": 3
+},{
+		"code3": "CIV",
+        "z": 26
+},{
+		"code3": "CMR",
+        "z": 67
+},{
+		"code3": "COD",
+        "z": 12
+},{
+		"code3": "COG",
+        "z": 63
+},{
+		"code3": "COK",
+        "z": 0
+},{
+		"code3": "COL",
+        "z": 2514
+},{
+		"code3": "COM",
+        "z": 170
+},{
+		"code3": "CPV",
+        "z": 625
+},{
+		"code3": "CRI",
+        "z": 1425
+},{
+		"code3": "CUB",
+        "z": 734
+},{
+		"code3": "CUW",
+        "z": 0
+},{
+		"code3": "CYM",
+        "z": 0
+},{
+		"code3": "CYP",
+        "z": 675
+},{
+		"code3": "CZE",
+        "z": 3173
+},{
+		"code3": "DEU",
+        "z": 1242
+},{
+		"code3": "DJI",
+        "z": 188
+},{
+		"code3": "DMA",
+        "z": 582
+},{
+		"code3": "DNK",
+        "z": 513
+},{
+		"code3": "DOM",
+        "z": 385
+},{
+		"code3": "DZA",
+        "z": 137
+},{
+		"code3": "ECU",
+        "z": 1872
+},{
+		"code3": "EGY",
+        "z": 200
+},{
+		"code3": "ERI",
+        "z": 17
+},{
+		"code3": "ESP",
+        "z": 1888
+},{
+		"code3": "EST",
+        "z": 1385
+},{
+		"code3": "ETH",
+        "z": 58
+},{
+		"code3": "FIN",
+        "z": 251
+},{
+		"code3": "FJI",
+        "z": 772
+},{
+		"code3": "FLK",
+        "z": 0
+},{
+		"code3": "FRA",
+        "z": 1791
+},{
+		"code3": "FRO",
+        "z": 0
+},{
+		"code3": "FSM",
+        "z": 0
+},{
+		"code3": "GAB",
+        "z": 123
+},{
+		"code3": "GBR",
+        "z": 2147
+},{
+		"code3": "GEO",
+        "z": 3146
+},{
+		"code3": "GGY",
+        "z": 0
+},{
+		"code3": "GHA",
+        "z": 39
+},{
+		"code3": "GIB",
+        "z": 0
+},{
+		"code3": "GIN",
+        "z": 29
+},{
+		"code3": "GMB",
+        "z": 138
+},{
+		"code3": "GNB",
+        "z": 74
+},{
+		"code3": "GNQ",
+        "z": 121
+},{
+		"code3": "GRC",
+        "z": 1823
+},{
+		"code3": "GRD",
+        "z": 1770
+},{
+		"code3": "GRL",
+        "z": 0
+},{
+		"code3": "GTM",
+        "z": 877
+},{
+		"code3": "GUY",
+        "z": 1277
+},{
+		"code3": "HKG",
+        "z": 28
+},{
+		"code3": "HND",
+        "z": 1035
+},{
+		"code3": "HRV",
+        "z": 2789
+},{
+		"code3": "HTI",
+        "z": 65
+},{
+		"code3": "HUN",
+        "z": 3742
+},{
+		"code3": "IDN",
+        "z": 521
+},{
+		"code3": "IMN",
+        "z": 0
+},{
+		"code3": "IND",
+        "z": 340
+},{
+		"code3": "IRL",
+        "z": 1162
+},{
+		"code3": "IRN",
+        "z": 1534
+},{
+		"code3": "IRQ",
+        "z": 581
+},{
+		"code3": "ISL",
+        "z": 102
+},{
+		"code3": "ISR",
+        "z": 884
+},{
+		"code3": "ITA",
+        "z": 2228
+},{
+		"code3": "JAM",
+        "z": 812
+},{
+		"code3": "JEY",
+        "z": 0
+},{
+		"code3": "JOR",
+        "z": 1154
+},{
+		"code3": "JPN",
+        "z": 146
+},{
+		"code3": "KAZ",
+        "z": 946
+},{
+		"code3": "KEN",
+        "z": 97
+},{
+		"code3": "KGZ",
+        "z": 417
+},{
+		"code3": "KHM",
+        "z": 175
+},{
+		"code3": "KIR",
+        "z": 0
+},{
+		"code3": "KNA",
+        "z": 523
+},{
+		"code3": "KOR",
+        "z": 79
+},{
+		"code3": "KWT",
+        "z": 570
+},{
+		"code3": "LAO",
+        "z": 30
+},{
+		"code3": "LBN",
+        "z": 1301
+},{
+		"code3": "LBR",
+        "z": 55
+},{
+		"code3": "LBY",
+        "z": 793
+},{
+		"code3": "LCA",
+        "z": 1535
+},{
+		"code3": "LIE",
+        "z": 1673
+},{
+		"code3": "LKA",
+        "z": 676
+},{
+		"code3": "LSO",
+        "z": 307
+},{
+		"code3": "LTU",
+        "z": 2566
+},{
+		"code3": "LUX",
+        "z": 1400
+},{
+		"code3": "LVA",
+        "z": 2317
+},{
+		"code3": "MAC",
+        "z": 0
+},{
+		"code3": "MAR",
+        "z": 396
+},{
+		"code3": "MCO",
+        "z": 911
+},{
+		"code3": "MDA",
+        "z": 2309
+},{
+		"code3": "MDG",
+        "z": 34
+},{
+		"code3": "MDV",
+        "z": 469
+},{
+		"code3": "MEX",
+        "z": 2269
+},{
+		"code3": "MHL",
+        "z": 0
+},{
+		"code3": "MKD",
+        "z": 3691
+},{
+		"code3": "MLI",
+        "z": 30
+},{
+		"code3": "MLT",
+        "z": 907
+},{
+		"code3": "MMR",
+        "z": 350
+},{
+		"code3": "MNE",
+        "z": 3724
+},{
+		"code3": "MNG",
+        "z": 608
+},{
+		"code3": "MOZ",
+        "z": 60
+},{
+		"code3": "MRT",
+        "z": 177
+},{
+		"code3": "MSR",
+        "z": 0
+},{
+		"code3": "MUS",
+        "z": 188
+},{
+		"code3": "MWI",
+        "z": 117
+},{
+		"code3": "MYS",
+        "z": 938
+},{
+		"code3": "NAM",
+        "z": 1381
+},{
+		"code3": "NCL",
+        "z": 0
+},{
+		"code3": "NER",
+        "z": 11
+},{
+		"code3": "NGA",
+        "z": 14
+},{
+		"code3": "NIC",
+        "z": 32
+},{
+		"code3": "NIU",
+        "z": 0
+},{
+		"code3": "NLD",
+        "z": 1182
+},{
+		"code3": "NOR",
+        "z": 207
+},{
+		"code3": "NPL",
+        "z": 389
+},{
+		"code3": "NRU",
+        "z": 0
+},{
+		"code3": "NZL",
+        "z": 9
+},{
+		"code3": "OMN",
+        "z": 787
+},{
+		"code3": "OWID_AFR",
+        "z": 163
+},{
+		"code3": "OWID_ASI",
+        "z": 263
+},{
+		"code3": "OWID_CYN",
+        "z": 0
+},{
+		"code3": "OWID_EUN",
+        "z": 1927
+},{
+		"code3": "OWID_EUR",
+        "z": 1938
+},{
+		"code3": "OWID_HIC",
+        "z": 1531
+},{
+		"code3": "OWID_INT",
+        "z": 0
+},{
+		"code3": "OWID_KOS",
+        "z": 1675
+},{
+		"code3": "OWID_LIC",
+        "z": 56
+},{
+		"code3": "OWID_LMC",
+        "z": 351
+},{
+		"code3": "OWID_NAM",
+        "z": 1985
+},{
+		"code3": "OWID_OCE",
+        "z": 79
+},{
+		"code3": "OWID_SAM",
+        "z": 2728
+},{
+		"code3": "OWID_UMC",
+        "z": 880
+},{
+		"code3": "OWID_WRL",
+        "z": 670
+},{
+		"code3": "PAK",
+        "z": 128
+},{
+		"code3": "PAN",
+        "z": 1684
+},{
+		"code3": "PCN",
+        "z": 0
+},{
+		"code3": "PER",
+        "z": 6039
+},{
+		"code3": "PHL",
+        "z": 448
+},{
+		"code3": "PLW",
+        "z": 0
+},{
+		"code3": "PNG",
+        "z": 63
+},{
+		"code3": "POL",
+        "z": 2296
+},{
+		"code3": "PRT",
+        "z": 1828
+},{
+		"code3": "PRY",
+        "z": 2283
+},{
+		"code3": "PSE",
+        "z": 923
+},{
+		"code3": "PYF",
+        "z": 0
+},{
+		"code3": "QAT",
+        "z": 208
+},{
+		"code3": "ROU",
+        "z": 2999
+},{
+		"code3": "RUS",
+        "z": 1914
+},{
+		"code3": "RWA",
+        "z": 101
+},{
+		"code3": "SAU",
+        "z": 250
+},{
+		"code3": "SDN",
+        "z": 71
+},{
+		"code3": "SEN",
+        "z": 110
+},{
+		"code3": "SGP",
+        "z": 142
+},{
+		"code3": "SHN",
+        "z": 0
+},{
+		"code3": "SLB",
+        "z": 0
+},{
+		"code3": "SLE",
+        "z": 15
+},{
+		"code3": "SLV",
+        "z": 581
+},{
+		"code3": "SMR",
+        "z": 2764
+},{
+		"code3": "SOM",
+        "z": 81
+},{
+		"code3": "SRB",
+        "z": 1752
+},{
+		"code3": "SSD",
+        "z": 12
+},{
+		"code3": "STP",
+        "z": 255
+},{
+		"code3": "SUR",
+        "z": 1985
+},{
+		"code3": "SVK",
+        "z": 2764
+},{
+		"code3": "SVN",
+        "z": 2576
+},{
+		"code3": "SWE",
+        "z": 1494
+},{
+		"code3": "SWZ",
+        "z": 1065
+},{
+		"code3": "SXM",
+        "z": 0
+},{
+		"code3": "SYC",
+        "z": 1284
+},{
+		"code3": "SYR",
+        "z": 153
+},{
+		"code3": "TCA",
+        "z": 0
+},{
+		"code3": "TCD",
+        "z": 11
+},{
+		"code3": "TGO",
+        "z": 29
+},{
+		"code3": "THA",
+        "z": 301
+},{
+		"code3": "TJK",
+        "z": 13
+},{
+		"code3": "TKL",
+        "z": 0
+},{
+		"code3": "TKM",
+        "z": 0
+},{
+		"code3": "TLS",
+        "z": 91
+},{
+		"code3": "TON",
+        "z": 0
+},{
+		"code3": "TTO",
+        "z": 1653
+},{
+		"code3": "TUN",
+        "z": 2129
+},{
+		"code3": "TUR",
+        "z": 922
+},{
+		"code3": "TUV",
+        "z": 0
+},{
+		"code3": "TWN",
+        "z": 36
+},{
+		"code3": "TZA",
+        "z": 12
+},{
+		"code3": "UGA",
+        "z": 69
+},{
+		"code3": "UKR",
+        "z": 2185
+},{
+		"code3": "URY",
+        "z": 1761
+},{
+		"code3": "USA",
+        "z": 2383
+},{
+		"code3": "UZB",
+        "z": 42
+},{
+		"code3": "VAT",
+        "z": 0
+},{
+		"code3": "VCT",
+        "z": 683
+},{
+		"code3": "VEN",
+        "z": 181
+},{
+		"code3": "VGB",
+        "z": 0
+},{
+		"code3": "VNM",
+        "z": 274
+},{
+		"code3": "VUT",
+        "z": 3
+},{
+		"code3": "WLF",
+        "z": 0
+},{
+		"code3": "WSM",
+        "z": 0
+},{
+		"code3": "YEM",
+        "z": 64
+},{
+		"code3": "ZAF",
+        "z": 1500
+},{
+		"code3": "ZMB",
+        "z": 194
+},{
+		"code3": "ZWE",
+        "z": 313
+}]
+}
+            
