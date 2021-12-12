@@ -363,6 +363,9 @@ async function dataChanged6() {
             plotLines: []
         }
     ];
+
+    var popSeries = [];
+
     var anySelected = false;
     var tempSel = false;
     var appleSel = false;
@@ -387,7 +390,7 @@ async function dataChanged6() {
                     my_YAxis[0].plotLines.push(jsonData);
 
 
-                    seriesX1.push({
+                    popSeries.push({
                         type: 'scatter',
                         marker: {
                             enabled: false
@@ -466,6 +469,13 @@ async function dataChanged6() {
             yAxis: my_YAxis,
             series: seriesX1
         })
+
+
+        for (let popData of popSeries) {
+            chart1.addSeries(popData, false);
+        }
+
+        chart1.redraw()
     }
 
 }
