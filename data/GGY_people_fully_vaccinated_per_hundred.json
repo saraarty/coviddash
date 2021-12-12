@@ -1,0 +1,9 @@
+{
+  "name": "Guernsey People Fully Vaccinated Per Hundred",
+  "country": "Guernsey",
+  "title": "People Fully Vaccinated Per Hundred",
+  "last": 21.48,
+  "data": [
+[1611446400000, 0.82],[1612656000000, 4.87],[1613260800000, 8.42],[1615507200000, 12.44],[1617753600000, 13.02],[1618531200000, 18.09],[1618876800000, 21.48]
+]
+   }

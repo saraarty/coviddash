@@ -1,0 +1,9 @@
+{
+  "name": "Tanzania People Vaccinated Per Hundred",
+  "country": "Tanzania",
+  "title": "People Vaccinated Per Hundred",
+  "last": 2.59,
+  "data": [
+[1628380800000, 0.17],[1629072000000, 0.36],[1630108800000, 0.5],[1631318400000, 0.57],[1638748800000, 2.59]
+]
+   }

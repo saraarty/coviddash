@@ -1,0 +1,9 @@
+{
+  "name": "China People Vaccinated Per Hundred",
+  "country": "China",
+  "title": "People Vaccinated Per Hundred",
+  "last": 84.82,
+  "data": [
+[1623283200000, 43.07],[1629936000000, 74.26],[1630886400000, 75.82],[1631923200000, 76.22],[1637280000000, 84.82]
+]
+   }

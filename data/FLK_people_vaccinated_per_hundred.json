@@ -1,0 +1,9 @@
+{
+  "name": "Falkland Islands People Vaccinated Per Hundred",
+  "country": "Falkland Islands",
+  "title": "People Vaccinated Per Hundred",
+  "last": 74.6,
+  "data": [
+[1612656000000, 0],[1613347200000, 42.94],[1613952000000, 49.09],[1616716800000, 61.99],[1617753600000, 73.84],[1618358400000, 74.6]
+]
+   }

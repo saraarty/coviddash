@@ -1,0 +1,9 @@
+{
+  "name": "Burkina Faso People Fully Vaccinated Per Hundred",
+  "country": "Burkina Faso",
+  "title": "People Fully Vaccinated Per Hundred",
+  "last": 1.51,
+  "data": [
+[1630368000000, 0.06],[1631404800000, 0.48],[1632268800000, 0.78],[1633737600000, 0.97],[1635033600000, 1.29],[1635379200000, 1.38],[1635984000000, 1.38],[1637625600000, 1.51]
+]
+   }

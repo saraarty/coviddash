@@ -1,0 +1,9 @@
+{
+  "name": "Madagascar People Fully Vaccinated",
+  "country": "Madagascar",
+  "title": "People Fully Vaccinated",
+  "last": 541160,
+  "data": [
+[1632096000000, 184632],[1634688000000, 184632],[1637193600000, 406159],[1637539200000, 425211],[1638144000000, 484570],[1638748800000, 541160]
+]
+   }

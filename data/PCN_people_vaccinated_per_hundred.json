@@ -1,0 +1,9 @@
+{
+  "name": "Pitcairn People Vaccinated Per Hundred",
+  "country": "Pitcairn",
+  "title": "People Vaccinated Per Hundred",
+  "last": 100,
+  "data": [
+[1623715200000, 100],[1624233600000, 100],[1627344000000, 100],[1627862400000, 100],[1630972800000, 100]
+]
+   }

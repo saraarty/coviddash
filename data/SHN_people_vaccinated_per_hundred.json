@@ -1,0 +1,9 @@
+{
+  "name": "Saint Helena People Vaccinated Per Hundred",
+  "country": "Saint Helena",
+  "title": "People Vaccinated Per Hundred",
+  "last": 71.55,
+  "data": [
+[1612310400000, 1.76],[1615766400000, 50.98],[1616025600000, 54.14],[1616630400000, 71.27],[1617926400000, 71.55],[1620172800000, 71.55]
+]
+   }

@@ -1,0 +1,9 @@
+{
+  "name": "Niue People Vaccinated",
+  "country": "Niue",
+  "title": "People Vaccinated",
+  "last": 1202,
+  "data": [
+[1624233600000, 0],[1624924800000, 698],[1625529600000, 1184],[1627862400000, 1202]
+]
+   }

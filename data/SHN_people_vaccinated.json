@@ -1,0 +1,9 @@
+{
+  "name": "Saint Helena People Vaccinated",
+  "country": "Saint Helena",
+  "title": "People Vaccinated",
+  "last": 4361,
+  "data": [
+[1612310400000, 107],[1615766400000, 3107],[1616025600000, 3300],[1616630400000, 4344],[1617926400000, 4361],[1620172800000, 4361]
+]
+   }

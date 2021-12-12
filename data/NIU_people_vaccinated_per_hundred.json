@@ -1,0 +1,9 @@
+{
+  "name": "Niue People Vaccinated Per Hundred",
+  "country": "Niue",
+  "title": "People Vaccinated Per Hundred",
+  "last": 74.47,
+  "data": [
+[1624233600000, 0],[1624924800000, 43.25],[1625529600000, 73.36],[1627862400000, 74.47]
+]
+   }

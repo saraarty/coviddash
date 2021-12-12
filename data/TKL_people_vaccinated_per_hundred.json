@@ -1,0 +1,9 @@
+{
+  "name": "Tokelau People Vaccinated Per Hundred",
+  "country": "Tokelau",
+  "title": "People Vaccinated Per Hundred",
+  "last": 70.76,
+  "data": [
+[1624233600000, 0],[1627862400000, 69.66],[1629072000000, 70.76],[1633996800000, 70.76]
+]
+   }

@@ -1,0 +1,9 @@
+{
+  "name": "Kuwait People Fully Vaccinated Per Hundred",
+  "country": "Kuwait",
+  "title": "People Fully Vaccinated Per Hundred",
+  "last": 73.13,
+  "data": [
+[1613347200000, 0.88],[1615161600000, 0.88],[1616371200000, 0.88],[1616976000000, 0.88],[1618704000000, 0.88],[1625270400000, 21.33],[1638230400000, 73.13]
+]
+   }

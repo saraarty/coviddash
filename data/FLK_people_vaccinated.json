@@ -1,0 +1,9 @@
+{
+  "name": "Falkland Islands People Vaccinated",
+  "country": "Falkland Islands",
+  "title": "People Vaccinated",
+  "last": 2632,
+  "data": [
+[1612656000000, 0],[1613347200000, 1515],[1613952000000, 1732],[1616716800000, 2187],[1617753600000, 2605],[1618358400000, 2632]
+]
+   }

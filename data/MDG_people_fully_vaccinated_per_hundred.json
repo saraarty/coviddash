@@ -1,0 +1,9 @@
+{
+  "name": "Madagascar People Fully Vaccinated Per Hundred",
+  "country": "Madagascar",
+  "title": "People Fully Vaccinated Per Hundred",
+  "last": 1.9,
+  "data": [
+[1632096000000, 0.65],[1634688000000, 0.65],[1637193600000, 1.43],[1637539200000, 1.5],[1638144000000, 1.7],[1638748800000, 1.9]
+]
+   }
