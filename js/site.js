@@ -128,11 +128,11 @@ async function dataChanged2() {
                     chart2.addSeries(newData, false);
 
                 }
-                //chart2.update({
-                //    xAxis: {
-                //        categories: countries2
-                //    }
-                //}, false);
+                chart2.update({
+                    xAxis: {
+                        categories: countries2
+                    }
+                }, false);
 
                 chart2.redraw()
             }
