@@ -1,16 +1,16 @@
 ﻿
-var seriesX = [];
-var chart1;
+let seriesX1 = [];
+let chart1;
 
-var seriesX2 = [];
-var countries2 = [];
-var chart2;
+let seriesX2 = [];
+let countries2 = [];
+let chart2;
 
-var seriesX3 = [];
-var chart3;
+let seriesX3 = [];
+let chart3;
 
-var seriesX4 = [];
-var chart4;
+let seriesX4 = [];
+let chart4;
 
 async function dataChanged1() {
 
@@ -83,18 +83,18 @@ async function dataChanged2() {
         countries2 = []
         seriesX2 = [];
 
-        var isFirstAttrib = true;
+        let isFirstAttrib = true;
 
         for (let atrib of vueApp.$data.selectedAttributes) {
 
-            var attribData = {
+            let attribData = {
                 name: null,
                 data: []
             };
 
             for (let ctr of vueApp.$data.selectedCountries) {
 
-                var jsonVal = await getJSON(ctr, atrib, vueApp.$data.selectedOptions.includes("smoothed"), vueApp.$data.selectedOptions.includes("per_million"), vueApp.$data.selectedOptions.includes("per_hundred"));
+                let jsonVal = await getJSON(ctr, atrib, vueApp.$data.selectedOptions.includes("smoothed"), vueApp.$data.selectedOptions.includes("per_million"), vueApp.$data.selectedOptions.includes("per_hundred"));
 
                 attribData.data.push(jsonVal.last);
 
@@ -178,7 +178,7 @@ async function dataChanged3() {
     if (vueApp.$data.selectedAttributes.length == 1 || vueApp.$data.selectedCountries.length == 1) {
         seriesX3 = [];
 
-        var chartData = {
+        let chartData = {
             name: null,
             data: []
         };
@@ -187,7 +187,7 @@ async function dataChanged3() {
 
             for (let ctr of vueApp.$data.selectedCountries) {
 
-                var jsonVal = await getJSON(ctr, atrib, vueApp.$data.selectedOptions.includes("smoothed"), vueApp.$data.selectedOptions.includes("per_million"), vueApp.$data.selectedOptions.includes("per_hundred"));
+                let jsonVal = await getJSON(ctr, atrib, vueApp.$data.selectedOptions.includes("smoothed"), vueApp.$data.selectedOptions.includes("per_million"), vueApp.$data.selectedOptions.includes("per_hundred"));
 
                 chartData.data.push({
                     name: ((vueApp.$data.selectedAttributes.length == 1) ? jsonVal.country : jsonVal.title),
@@ -258,7 +258,7 @@ async function dataChanged4() {
 
         seriesX4 = [];
 
-        var mapData = await getJSON("ALL", vueApp.$data.selectedAttributes[0], vueApp.$data.selectedOptions.includes("smoothed"), vueApp.$data.selectedOptions.includes("per_million"), vueApp.$data.selectedOptions.includes("per_hundred"));
+        let mapData = await getJSON("ALL", vueApp.$data.selectedAttributes[0], vueApp.$data.selectedOptions.includes("smoothed"), vueApp.$data.selectedOptions.includes("per_million"), vueApp.$data.selectedOptions.includes("per_hundred"));
 
         seriesX4 = mapData.data
         if (chart4 != null) {
@@ -386,13 +386,13 @@ async function dataChanged6() {
 
                 anySelected = true;
 
-                var jsonData = await getPopulation(ctr);
+                let jsonData = await getPopulation(ctr);
                 if (jsonData) {
 
                     my_YAxis[0].plotLines.push(jsonData);
 
                     if (maxPopTop < jsonData.value) {
-                        maxPopTop = jsonData.value
+                        maxPopTop = jsonData.value;
                     }
 
                 }
@@ -401,7 +401,7 @@ async function dataChanged6() {
             if (ext == "apple_driving") {
                 anySelected = true;
                 appleSel = true;
-                var jsonData = await getJSON(ctr, ext, false, false, false, false);
+                let jsonData = await getJSON(ctr, ext, false, false, false, false);
                 if (jsonData) {
                     seriesX1.push(jsonData);
                 }
@@ -409,7 +409,7 @@ async function dataChanged6() {
             if (ext == "apple_walking") {
                 anySelected = true;
                 appleSel = true;
-                var jsonData = await getJSON(ctr, ext, false, false, false, false);
+                let jsonData = await getJSON(ctr, ext, false, false, false, false);
                 if (jsonData) {
                     seriesX1.push(jsonData);
                 }
@@ -417,7 +417,7 @@ async function dataChanged6() {
             if (ext == "apple_transit") {
                 anySelected = true;
                 appleSel = true;
-                var jsonData = await getJSON(ctr, ext, false, false, false, false);
+                let jsonData = await getJSON(ctr, ext, false, false, false, false);
                 if (jsonData) {
                     seriesX1.push(jsonData);
                 }
@@ -427,10 +427,8 @@ async function dataChanged6() {
 
     if (anySelected) {
 
-        var localSeriesX1 = seriesX1.slice();
-
         if (maxPopTop > 0) {
-            localSeriesX1.push({
+            seriesX1.push({
                 type: 'scatter',
                 marker: {
                     enabled: false
@@ -440,6 +438,7 @@ async function dataChanged6() {
                 showInLegend: false
             });
         }
+
         my_YAxis.push({
             title: {
                 text: 'Temperature'
@@ -476,7 +475,7 @@ async function dataChanged6() {
                 type: "datetime",
             },
             yAxis: my_YAxis,
-            series: localSeriesX1
+            series: seriesX1
         })
 
     }
@@ -522,9 +521,9 @@ async function getPopulation(countryCode) {
         })
 }
 
-var countriesList;
+let countriesList;
 
-var vueApp;
+let vueApp;
 
 $(function () {
 
