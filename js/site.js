@@ -306,7 +306,7 @@ async function dataChanged4() {
                         minSize: 4,
                         maxSize: '12%',
                         tooltip: {
-                            pointFormat: '{point.properties.hc-a2}: {point.z} thousands'
+                            pointFormat: '{point.properties.hc-a2}: {point.z}'
                         }
                     }]
                 });
