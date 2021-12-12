@@ -355,7 +355,8 @@ async function dataChanged5() {
 
 async function dataChanged6() {
 
-    var my_YAxis = [
+    let my_YAxis = []
+    my_YAxis = [
         {
             title: {
                 text: '',
@@ -364,11 +365,12 @@ async function dataChanged6() {
         }
     ];
 
-    var popSeries = [];
 
-    var anySelected = false;
-    var tempSel = false;
-    var appleSel = false;
+    let anySelected = false;
+    let tempSel = false;
+    let appleSel = false;
+
+    let maxPopTop = 0;
 
     for (let ctr of vueApp.$data.selectedCountries) {
         for (let ext of vueApp.$data.selectedExtras) {
@@ -389,16 +391,10 @@ async function dataChanged6() {
 
                     my_YAxis[0].plotLines.push(jsonData);
 
+                    if (maxPopTop < jsonData.value) {
+                        maxPopTop = jsonData.value
+                    }
 
-                    popSeries.push({
-                        type: 'scatter',
-                        marker: {
-                            enabled: false
-                        },
-                        data: [[1638921600000, jsonData.value]],
-                        enableMouseTracking: false,
-                        showInLegend: false
-                    });
                 }
 
             }
@@ -431,6 +427,19 @@ async function dataChanged6() {
 
     if (anySelected) {
 
+        var localSeriesX1 = seriesX1.slice();
+
+        if (maxPopTop > 0) {
+            localSeriesX1.push({
+                type: 'scatter',
+                marker: {
+                    enabled: false
+                },
+                data: [[1638921600000, maxPopTop]],
+                enableMouseTracking: false,
+                showInLegend: false
+            });
+        }
         my_YAxis.push({
             title: {
                 text: 'Temperature'
@@ -467,15 +476,9 @@ async function dataChanged6() {
                 type: "datetime",
             },
             yAxis: my_YAxis,
-            series: seriesX1
+            series: localSeriesX1
         })
 
-
-        for (let popData of popSeries) {
-            chart1.addSeries(popData, false);
-        }
-
-        chart1.redraw()
     }
 
 }
